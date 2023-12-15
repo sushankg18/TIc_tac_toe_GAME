@@ -1,25 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 const Board = () => {
+    const [signal, setSignal] = useState('')
+
+    
+
     const handleConsole = () => {
-        console.log('hey-cliked')
+        setSignal('X')
     }
     return (
         <div className='main-container'>
             <div className='main-box'>
                 <div className='r-1'>
-                    <div onClick={handleConsole} className='square'>X</div>
-                    <div onClick={handleConsole} className='square'>0</div>
-                    <div onClick={handleConsole} className='square'>X</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
                 </div>
                 <div className='r-2'>
-                    <div onClick={handleConsole} className='square'>0</div>
-                    <div onClick={handleConsole} className='square'>X</div>
-                    <div onClick={handleConsole} className='square'>0</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
                 </div>
                 <div className='r-3'>
-                    <div onClick={handleConsole} className='square'>0</div>
-                    <div onClick={handleConsole} className='square'>0</div>
-                    <div onClick={handleConsole} className='square'>X</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
+                    <div onClick={handleConsole} className='square'>{signal}</div>
                 </div>
             </div>
         </div>
