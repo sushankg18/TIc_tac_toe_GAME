@@ -1,33 +1,42 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
+
 const Board = () => {
-    const [signal, setSignal] = useState('')
+  const [signals, setSignals] = useState(Array(9).fill(''));
 
-    
+  const handleConsole = (index) => {
+    // Create a new array with the updated signal value at the specified index
+    const newSignals = [...signals];
+    newSignals[index] = 'X';
+    setSignals(newSignals);
+  };
 
-    const handleConsole = () => {
-        setSignal('X')
-    }
-    return (
-        <div className='main-container'>
-            <div className='main-box'>
-                <div className='r-1'>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                </div>
-                <div className='r-2'>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                </div>
-                <div className='r-3'>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                    <div onClick={handleConsole} className='square'>{signal}</div>
-                </div>
+  return (
+    <div className='main-container'>
+      <div className='main-box'>
+        <div className='r-1'>
+          {signals.slice(0, 3).map((signal, index) => (
+            <div key={index} onClick={() => handleConsole(index)} className='square'>
+              {signal}
             </div>
+          ))}
         </div>
-    )
-}
+        <div className='r-2'>
+          {signals.slice(3, 6).map((signal, index) => (
+            <div key={index} onClick={() => handleConsole(index + 3)} className='square'>
+              {signal}
+            </div>
+          ))}
+        </div>
+        <div className='r-3'>
+          {signals.slice(6, 9).map((signal, index) => (
+            <div key={index} onClick={() => handleConsole(index + 6)} className='square'>
+              {signal}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Board
+export default Board;
