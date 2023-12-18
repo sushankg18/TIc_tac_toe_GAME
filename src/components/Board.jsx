@@ -6,9 +6,10 @@ const Board = () => {
   const handleConsole = (index) => {
     // Create a new array with the updated signal value at the specified index
     const newSignals = [...signals];
-    newSignals[index] = 'X';
+    newSignals[index] = newSignals[index] === 'X' ? 'O' : 'X';
     setSignals(newSignals);
   };
+  
 
   return (
     <div className='main-container'>
