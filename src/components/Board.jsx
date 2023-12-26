@@ -4,7 +4,6 @@ const Board = () => {
   const [signals, setSignals] = useState(Array(9).fill(''));
 
   const handleConsole = (index) => {
-    // Create a new array with the updated signal value at the specified index
     const newSignals = [...signals];
     newSignals[index] = newSignals[index] === 'X' ? 'O' : 'X';
     setSignals(newSignals);
